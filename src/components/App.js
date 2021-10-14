@@ -14,10 +14,12 @@ class App extends React.Component {
     this.props.store.subscribe(() =>{
     
       this.forceUpdate();
+    
     })
 
     this.props.store.dispatch(addMovies(data));
 
+    // console.log('inside mount');
   }
 
   isFavourite  = (movie) =>{
@@ -36,47 +38,58 @@ class App extends React.Component {
   onChangeTab = (val) =>{
 
     this.props.store.dispatch(showFavourites(val));
+    // console.log('val',val);
   }
 
 
 render(){
   
-      const {movies} = this.props.store.getState();   // { movies:{} search:{}}
+      const {movies , search} = this.props.store.getState();   // { movies:{} search:{}}
       const {list,favourites,showFavourites} = movies;  
 
       const display = showFavourites ? favourites:list;
 
-      console.log('render', this.props.store.getState());
-      return (
-        <div className="App">
-          <Navbar />
+      
 
-          <div className="main">
+            return (
+              <div className="App">
+                <Navbar 
+                store={this.props.store}
+                search={search}
+                />
 
-            <div className="tabs">
+                <div className="main">
 
-                <div className={`tab ${showFavourites?'':'active-tabs'}`} onClick={() => this.onChangeTab(false)}>Movies</div>
-                <div className={`tab ${showFavourites?'active-tabs':''}`} onClick={() => this.onChangeTab(true)}> Favourites</div>
-            </div>
+                  <div className="tabs">
 
-            <div className="list">
+                      <div className={`tab ${showFavourites?'':'active-tabs'}`} onClick={() => this.onChangeTab(false)}>Movies</div>
+                      <div className={`tab ${showFavourites?'active-tabs':''}`} onClick={() => this.onChangeTab(true)}> Favourites</div>
+                  </div>
 
-              {
-                display.map((movie,index) =>{
-                  return < MovieCard movie={movie}
-                   key={`movie-${index}`}
-                   store={this.props.store}
-                   isFavourite ={this.isFavourite(movie)}
-                   />
-                })
-              }
+                  <div className="list">
 
-            </div>
+                    {
+                      display.map((movie,index) =>{
+                        return < MovieCard movie={movie}
+                        key={`movie-${index}`}
+                        store={this.props.store}
+                        isFavourite ={this.isFavourite(movie)}
+                        />
+                      })
+                    }
 
-          </div>
-        </div>
-      );
-}
-}
+                  </div>
+
+                </div>
+              </div>
+            );
+
+        
+     }
+      
+
+    }
+  
+
 
 export default App;
