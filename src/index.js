@@ -7,7 +7,8 @@ import './index.css';
 import App from './components/App';
 import rootReducer from './reducers/index';
 
-
+// function logger(obj,next,action)
+// logger(obj)(next)(action)
 // const logger = function({dispatch,getState}){   // obj here recieved will have dispatch and getstate
 
 //     return function (next){
@@ -22,7 +23,7 @@ import rootReducer from './reducers/index';
 const logger = ({dispatch,getState}) => (next) => (action) =>{
 
     if(typeof action !== 'function'){
-        console.log('Action_type',action.type);
+        // console.log('Action_type',action.type);
     }
 
     next(action);
