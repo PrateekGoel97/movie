@@ -59,7 +59,9 @@ export function addMovieToList(movie){
 
 export function handleMovieSearch(movie){
 
-   const url =`http://www.omdbapi.com/?i=tt3896198&apikey=53ad4700&t=${movie}`;
+   const {REACT_APP_TOKEN} = process.env;
+
+   const url =`http://www.omdbapi.com/?i=${REACT_APP_TOKEN}&t=${movie}`;
   
     return function(dispatch){
        
@@ -67,10 +69,10 @@ export function handleMovieSearch(movie){
          .then( response => response.json())
          .then( movie => {
             
-            console.log(movie);
+            //console.log(movie);
 
             if(movie.Response === 'False'){
-               console.log(movie.Error);
+              // console.log(movie.Error);
                return;
             }
 
