@@ -62,7 +62,7 @@ export function handleMovieSearch(movie){
 
    const {REACT_APP_TOKEN} = process.env;
 
-   const url =`http://www.omdbapi.com/?i=${REACT_APP_TOKEN}&t=${movie}`;
+   const url =`https://www.omdbapi.com/?i=${REACT_APP_TOKEN}&t=${movie}`;
   
     return function(dispatch){
        
