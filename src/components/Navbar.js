@@ -48,7 +48,7 @@ class Navbar extends React.Component{
         <div className='nav'>
             
             <div className="search-container">
-                <input onChange={this.handleChange}/>
+                <input onChange={this.handleChange} placeholder="Search movies"/>
                 <button id="search-btn" onClick={this.handleSearch}>Search</button>
             </div>    
 
@@ -78,3 +78,5 @@ class Navbar extends React.Component{
 }
 
 export default Navbar;
+
+

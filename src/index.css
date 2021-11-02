@@ -140,9 +140,17 @@ body {
   flex: 10;
 }
 .movie-card .title {
+  display: flex;
+  justify-content: space-between;
   padding: 10px 20px;
   font-size: 25px;
   font-weight: 600;
+}
+.movie-card .title img{
+    height: 15px;
+}
+.movie-card .title div{
+  cursor: pointer;
 }
 .movie-card .plot {
   margin-top: 20px;

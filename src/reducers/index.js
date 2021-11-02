@@ -1,6 +1,5 @@
-
 import { combineReducers } from 'redux';
-import {ADD_MOVIES , ADD_FAVOURITES, REMOVE_FAVOURITES, SHOW_FAVOURITES , ADD_MOVIE_TO_LIST ,ADD_SEARCH_RESULT} from '../actions/index';
+import {ADD_MOVIES , ADD_FAVOURITES, REMOVE_FAVOURITES, SHOW_FAVOURITES , ADD_MOVIE_TO_LIST ,ADD_SEARCH_RESULT, DELETE_FROM_LIST} from '../actions/index';
 
 
 const initialMovieState = {
@@ -43,6 +42,13 @@ export function movies(state = initialMovieState , action){
                             ...state,
                             list: [ action.movie , ...state.list]
                         }
+
+        case DELETE_FROM_LIST :
+                            return{
+                                ...state,
+                                favourites : state.favourites.filter(item => item !== action.movie),
+                                list : state.list.filter(item => item !== action.movie)
+                            }
         
         default: return state;
     }
@@ -94,4 +100,3 @@ export function movies(state = initialMovieState , action){
         movies,
         search
     })
-

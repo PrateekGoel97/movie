@@ -13,6 +13,7 @@ export const REMOVE_FAVOURITES = 'REMOVE_FAVOURITES';
 export const SHOW_FAVOURITES = 'SHOW_FAVOURITES';
 export const ADD_MOVIE_TO_LIST = 'ADD_MOVIE_TO_LIST';
 export const ADD_SEARCH_RESULT = 'ADD_SEARCH_RESULT';
+export const DELETE_FROM_LIST = 'DELETE_FROM_LIST';
 //action creators
 export  function addMovies(movies){
 
@@ -81,6 +82,14 @@ export function handleMovieSearch(movie){
          });
     } 
 
+}
+
+
+export function removeFromList(movie){
+   return {
+      type:DELETE_FROM_LIST,
+      movie
+   }
 }
 
 export function addMovieSearchResult(movie){
