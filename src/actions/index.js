@@ -62,7 +62,8 @@ export function handleMovieSearch(movie){
 
    // const {REACT_APP_TOKEN} = process.env;
 
-   const url =`http://www.omdbapi.com/?i=tt3896198&apikey=53ad4700&t=${movie}`;
+   const url =`https://www.omdbapi.com/?i=tt3896198&apikey=53ad4700&t=${movie}`;
+
   
     return function(dispatch){
        
