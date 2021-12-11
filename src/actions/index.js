@@ -60,9 +60,9 @@ export function addMovieToList(movie){
 
 export function handleMovieSearch(movie){
 
-   const {REACT_APP_TOKEN} = process.env;
+   // const {REACT_APP_TOKEN} = process.env;
 
-   const url =`http://www.omdbapi.com/?i=${REACT_APP_TOKEN}&t=${movie}`;
+   const url =`http://www.omdbapi.com/?i=tt3896198&apikey=53ad4700&t=${movie}`;
   
     return function(dispatch){
        

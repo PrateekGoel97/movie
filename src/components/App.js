@@ -1,9 +1,9 @@
 import Navbar from './Navbar';
-import {data} from '../data';
+// import {data} from '../data';
 import MovieCard from './MovieCard';
 import React from 'react';
 
-import {addMovies,showFavourites} from '../actions/index';
+import {showFavourites} from '../actions/index';
 
 
 class App extends React.Component {
@@ -17,7 +17,7 @@ class App extends React.Component {
     
     })
 
-    this.props.store.dispatch(addMovies(data));
+    // this.props.store.dispatch(addMovies(data));
 
     // console.log('inside mount');
   }
@@ -67,6 +67,8 @@ render(){
                   </div>
 
                   <div className="list">
+
+                    {display.length === 0 && <div className='no-movies'> No Movies Found!! </div>}
 
                     {
                       display.map((movie,index) =>{
